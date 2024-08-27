@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="filters">
+    <h2>FILTERS</h2>
+    <div class="filter-group">
+      <label for="movieName">Movie Name:</label>
+      <select id="movieName" [(ngModel)]="filters.movieName" (change)="onFilterChange()">
+        <option value="">All</option>
+        <option *ngFor="let movie of movies$ | async" [value]="movie">{{ movie }}</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="species">Species:</label>
+      <select id="species" [(ngModel)]="filters.species" (change)="onFilterChange()">
+        <option value="">All</option>
+        <option *ngFor="let species of species$ | async" [value]="species.url">{{ species.name }}</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="vehicle">Vehicle:</label>
+      <select id="vehicle" [(ngModel)]="filters.vehicle" (change)="onFilterChange()">
+        <option value="">All</option>
+        <option *ngFor="let vehicle of vehicles$ | async" [value]="vehicle.url">{{ vehicle.name }}</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="starShips">Star Ships:</label>
+      <select id="starShips" [(ngModel)]="filters.starShips" (change)="onFilterChange()">
+        <option value="">All</option>
+        <option *ngFor="let starShip of starShips$ | async" [value]="starShip.url">{{ starShip.name }}</option>
+      </select>
+    </div>
+    <div class="filter-group birth-year-group">
+      <label for="birthYear">Birth Year:</label>
+      <select id="birthYear" [(ngModel)]="filters.birthYear" (change)="onFilterChange()">
+        <option value="ALL">ALL</option>
+        <option *ngFor="let character of characters$ | async" [value]="character.birth_year">{{ character.birth_year }}</option>
+      </select>
+    </div>
+    <div>
+        <button class="search-button" (click)="getCharacters()">Search</button>
+    </div>
+  </div>
+
+  <div class="search-results">
+    <h2>SEARCH RESULTS</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>SI No.</th>
+          <th>Character Name</th>
+          <th>Species</th>
+          <th>Birth Year</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let character of characters$ | async; let i = index">
+          <td>{{ i + 1 + (currentPage - 1) * 10 }}</td>
+          <td>
+            <a [routerLink]="['/characters', character.id]">{{ character.name }}</a>
+          </td>
+          <td>{{ getSpeciesName(character.species) }}</td>
+          <td>{{ character.birth_year }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+     <div class="pagination">
+      <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+      <span *ngFor="let page of [].constructor(totalPages); let i = index">
+        <button (click)="onPageChange(i + 1)" [class.active]="currentPage === i + 1">{{ i + 1 }}</button>
+      </span> 

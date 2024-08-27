@@ -1,0 +1,51 @@
+<!-- Only display content if character data is available -->
+<div *ngIf="character$ | async as character">
+  <div class="character-container">
+    <!-- Left Side: Character Details -->
+    <div class="character-details">
+      <img src="assets/planet-placeholder.png" alt="Planet" class="character-image">
+      <div class="character-info">
+        <p><strong>Name:</strong> {{ character.name }}</p>
+        <p><strong>Born:</strong> {{ character.birth_year }}</p>
+        <p><strong>Gender:</strong> {{ character.gender }}</p>
+        <p><strong>Height:</strong> {{ character.height }} cm</p>
+        <p><strong>Weight:</strong> {{ character.mass }} kg</p>
+        <p><strong>Hair Color:</strong> {{ character.hair_color }}</p>
+        <p><strong>Skin Color:</strong> {{ character.skin_color }}</p>
+        <p><strong>Eye Color:</strong> {{ character.eye_color }}</p>
+        <p><strong>Planet Name:</strong> Tatooine</p>
+        <p><strong>Species:</strong> Human</p>
+      </div>
+    </div>
+    
+    <!-- Right Side: Films, Vehicles, Starships -->
+    <div class="character-attributes">
+      <div class="films">
+        <h3>Films</h3>
+        <ul>
+          <li *ngFor="let film of character.films">
+            <a [href]="film" target="_blank">Film {{ film.split('/').slice(-2, -1)[0] }}</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="vehicles">
+        <h3>Vehicles</h3>
+        <ul>
+          <li *ngFor="let vehicle of character.vehicles">
+            <a [href]="vehicle" target="_blank">Vehicle {{ vehicle.split('/').slice(-2, -1)[0] }}</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="starships">
+        <h3>Starships</h3>
+        <ul>
+          <li *ngFor="let starship of character.starships">
+            <a [href]="starship" target="_blank">Starship {{ starship.split('/').slice(-2, -1)[0] }}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

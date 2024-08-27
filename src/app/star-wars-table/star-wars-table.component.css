@@ -1,0 +1,135 @@
+.container {
+  display: flex;
+  margin: 20px;
+}
+
+.filters {
+  width: 250px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  margin-right: 20px;
+}
+
+.filter-group {
+  margin-bottom: 10px;
+}
+
+.search-results {
+  flex: 1;
+  padding: 20px;
+  border: 1px solid #ddd;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  background-color: #eee;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.pagination button.active {
+  background-color: #ddd;
+}
+
+
+.filters-container {
+  width: 200px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.filters-container h3 {
+  margin: 0 0 20px 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #35A79C;
+  text-align: center;
+}
+
+.filter-group {
+  margin-bottom: 20px;
+}
+
+.filter-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #35A79C;
+}
+
+.filter-group select {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  color: #35A79C;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+}
+
+.birth-year-group {
+  background-color: #35A79C;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.birth-year-group label {
+  color: #fff;
+}
+
+.birth-year-filter {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.checkbox-group input[type="checkbox"] {
+  margin-right: 10px;
+  accent-color: #35A79C;
+}
+
+.search-button {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #35A79C;
+  background-color: #fff;
+  border: 2px solid #35A79C;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.search-button:hover {
+  background-color: #35A79C;
+  color: #fff;
+}
