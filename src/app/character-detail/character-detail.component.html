@@ -1,7 +1,5 @@
-<!-- Only display content if character data is available -->
 <div *ngIf="character$ | async as character">
   <div class="character-container">
-    <!-- Left Side: Character Details -->
     <div class="character-details">
       <img src="assets/planet-placeholder.png" alt="Planet" class="character-image">
       <div class="character-info">
@@ -17,14 +15,13 @@
         <p><strong>Species:</strong> Human</p>
       </div>
     </div>
-    
-    <!-- Right Side: Films, Vehicles, Starships -->
+
     <div class="character-attributes">
       <div class="films">
         <h3>Films</h3>
         <ul>
           <li *ngFor="let film of character.films">
-            <a [href]="film" target="_blank">Film {{ film.split('/').slice(-2, -1)[0] }}</a>
+            <a [href]="film.url" target="_blank">{{ film.title }}</a>
           </li>
         </ul>
       </div>
@@ -33,7 +30,7 @@
         <h3>Vehicles</h3>
         <ul>
           <li *ngFor="let vehicle of character.vehicles">
-            <a [href]="vehicle" target="_blank">Vehicle {{ vehicle.split('/').slice(-2, -1)[0] }}</a>
+            <a [href]="vehicle.url" target="_blank">{{ vehicle.name }}</a>
           </li>
         </ul>
       </div>
@@ -42,7 +39,7 @@
         <h3>Starships</h3>
         <ul>
           <li *ngFor="let starship of character.starships">
-            <a [href]="starship" target="_blank">Starship {{ starship.split('/').slice(-2, -1)[0] }}</a>
+            <a [href]="starship.url" target="_blank">{{ starship.name }}</a>
           </li>
         </ul>
       </div>
